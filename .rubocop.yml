@@ -1,0 +1,33 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  NewCops: enable
+  Exclude:
+    - './*'
+    - 'config/**/*'
+    - 'lib/tasks/**/*'
+    - 'lib/generators/**/*'
+    - 'features/**/*'
+    - 'spec/**/*'
+    - 'vendor/**/*'
+
+####################################
+## Customization for this project ##
+####################################
+
+Style/Documentation:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 100
+
+Metrics/AbcSize:
+  Max: 18
+
+Metrics/MethodLength:
+  Max: 12
+
+Metrics/CyclomaticComplexity:
+  Max: 18
