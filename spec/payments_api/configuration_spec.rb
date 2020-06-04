@@ -102,4 +102,24 @@ RSpec.describe PaymentsApi::Configuration do
       end
     end
   end
+
+  describe '#http_client_class' do
+    context 'when no http_client_class is specified' do
+      it 'defaults to the gem built-in client' do
+        expect(PaymentsApi.configuration.http_client_class).to eq(PaymentsApi::HttpClient)
+      end
+    end
+
+    context 'when an http_client_class is specified' do
+      let(:custom_value) { double('SuperClient') }
+
+      before do
+        PaymentsApi.configure { |config| config.http_client_class = custom_value }
+      end
+
+      it 'returns configured value' do
+        expect(PaymentsApi.configuration.http_client_class).to eq(custom_value)
+      end
+    end
+  end
 end

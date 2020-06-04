@@ -16,7 +16,6 @@ module PaymentsApi
         email
         refund_summary
         settlement_summary
-        card_details
         _links
       ].freeze
 
@@ -31,6 +30,14 @@ module PaymentsApi
       # URL where to redirect the user to capture their payment details
       def payment_url
         _links.dig('next_url', 'href')
+      end
+
+      def status
+        state.dig('status')
+      end
+
+      def finished?
+        !!state.dig('finished')
       end
     end
   end

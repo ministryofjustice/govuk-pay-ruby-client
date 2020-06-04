@@ -5,6 +5,7 @@ This is a very basic, and very much work in progress gem to serve as an API clie
 Currently it supports:
 
 * Create a credit card payment
+* Get payment details by ID
 
 When finished it will at least handle the basic operations to create card payments, query the status of a transaction by ID, as well as the events, and probably search and cancel functionality as well.
 

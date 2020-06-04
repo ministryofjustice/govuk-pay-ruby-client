@@ -3,13 +3,13 @@
 module PaymentsApi
   module Requests
     class CreateCardPayment
-      ENDPOINT = '/v1/payments'
+      include Traits::ApiRequest
 
-      attr_accessor :amount,
-                    :reference,
-                    :description,
-                    :return_url,
-                    :optional_details
+      attr_reader :amount,
+                  :reference,
+                  :description,
+                  :return_url,
+                  :optional_details
 
       def initialize(amount:, reference:, description:, return_url:, **optional_details)
         @optional_details = optional_details
@@ -22,11 +22,13 @@ module PaymentsApi
 
       def call
         Responses::PaymentResult.new(
-          http_client.post(ENDPOINT, payload)
+          http_client.post(endpoint, payload)
         )
       end
 
-      private
+      def endpoint
+        '/v1/payments'
+      end
 
       def payload
         {
@@ -37,10 +39,6 @@ module PaymentsApi
         }.merge(
           optional_details
         )
-      end
-
-      def http_client
-        @_http_client ||= PaymentsApi::HttpClient.new
       end
     end
   end
