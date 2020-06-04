@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Payments
+module PaymentsApi
   module Requests
     class CreateCardPayment
       ENDPOINT = '/v1/payments'
@@ -40,7 +40,7 @@ module Payments
       end
 
       def http_client
-        @_http_client ||= Payments::HttpClient.new
+        @_http_client ||= PaymentsApi::HttpClient.new
       end
     end
   end

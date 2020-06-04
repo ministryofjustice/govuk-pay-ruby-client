@@ -2,7 +2,7 @@
 
 require 'faraday'
 
-module Payments
+module PaymentsApi
   class HttpClient
     include Errors
 
@@ -12,7 +12,7 @@ module Payments
 
     def initialize(options = {})
       @options = options
-      @config = Payments.configuration
+      @config = PaymentsApi.configuration
     end
 
     # Only GET and POST verbs are used with Payments API, but more

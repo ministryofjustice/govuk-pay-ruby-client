@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Payments
+module PaymentsApi
   module Responses
     class PaymentResult
       FIELDS = %w[

@@ -2,7 +2,7 @@
 
 require_relative 'errors'
 
-module Payments
+module PaymentsApi
   module Errors
     def raise_error!(response_body, status_code)
       message = response_body.merge('http_code' => status_code)

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Payments
+module PaymentsApi
   class Configuration
     attr_accessor :logger,
                   :api_root,

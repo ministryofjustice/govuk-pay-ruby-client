@@ -6,7 +6,7 @@ require 'simplecov'
 SimpleCov.minimum_coverage 100
 SimpleCov.start
 
-require_relative '../lib/payments'
+require_relative '../lib/payments_api'
 
 Dir[File.join('./spec', 'support', '**', '*.rb')].sort.each(&method(:require))
 

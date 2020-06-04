@@ -2,11 +2,11 @@
 
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'payments/version'
+require 'payments_api/version'
 
 Gem::Specification.new do |spec|
   spec.name     = 'govuk-pay-ruby-client'
-  spec.version  = Payments::VERSION
+  spec.version  = PaymentsApi::VERSION
 
   spec.authors  = ['Jesus Laiz']
   spec.email    = ['zheileman@users.noreply.github.com']

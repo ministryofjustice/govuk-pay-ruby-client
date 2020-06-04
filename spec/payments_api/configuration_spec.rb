@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-RSpec.describe Payments::Configuration do
-  let(:config) { Payments.configuration }
+RSpec.describe PaymentsApi::Configuration do
+  let(:config) { PaymentsApi.configuration }
 
   describe '#logger' do
     context 'when no logger is specified' do
       it 'defaults to nil' do
-        expect(Payments.configuration.logger).to be_nil
+        expect(PaymentsApi.configuration.logger).to be_nil
       end
     end
 
@@ -14,11 +14,11 @@ RSpec.describe Payments::Configuration do
       let(:custom_value) { Object.new }
 
       before do
-        Payments.configure { |config| config.logger = custom_value }
+        PaymentsApi.configure { |config| config.logger = custom_value }
       end
 
       it 'returns configured value' do
-        expect(Payments.configuration.logger).to eq(custom_value)
+        expect(PaymentsApi.configuration.logger).to eq(custom_value)
       end
     end
   end
@@ -26,7 +26,7 @@ RSpec.describe Payments::Configuration do
   describe '#api_key' do
     context 'when no api_key is specified' do
       it 'defaults to nil' do
-        expect(Payments.configuration.api_key).to be_nil
+        expect(PaymentsApi.configuration.api_key).to be_nil
       end
     end
 
@@ -34,11 +34,11 @@ RSpec.describe Payments::Configuration do
       let(:custom_value) { 'abc123' }
 
       before do
-        Payments.configure { |config| config.api_key = custom_value }
+        PaymentsApi.configure { |config| config.api_key = custom_value }
       end
 
       it 'returns configured value' do
-        expect(Payments.configuration.api_key).to eq(custom_value)
+        expect(PaymentsApi.configuration.api_key).to eq(custom_value)
       end
     end
   end
@@ -46,7 +46,7 @@ RSpec.describe Payments::Configuration do
   describe '#api_root' do
     context 'when no api_root is specified' do
       it 'defaults to payments base URL' do
-        expect(Payments.configuration.api_root).to eq('https://publicapi.payments.service.gov.uk')
+        expect(PaymentsApi.configuration.api_root).to eq('https://publicapi.payments.service.gov.uk')
       end
     end
 
@@ -54,11 +54,11 @@ RSpec.describe Payments::Configuration do
       let(:custom_value) { 'http://example.com' }
 
       before do
-        Payments.configure { |config| config.api_root = custom_value }
+        PaymentsApi.configure { |config| config.api_root = custom_value }
       end
 
       it 'returns configured value' do
-        expect(Payments.configuration.api_root).to eq(custom_value)
+        expect(PaymentsApi.configuration.api_root).to eq(custom_value)
       end
     end
   end
@@ -66,7 +66,7 @@ RSpec.describe Payments::Configuration do
   describe '#open_timeout' do
     context 'when no open_timeout is specified' do
       it 'has a default timeout' do
-        expect(Payments.configuration.open_timeout).to eq(5)
+        expect(PaymentsApi.configuration.open_timeout).to eq(5)
       end
     end
 
@@ -74,11 +74,11 @@ RSpec.describe Payments::Configuration do
       let(:custom_value) { 123 }
 
       before do
-        Payments.configure { |config| config.open_timeout = custom_value }
+        PaymentsApi.configure { |config| config.open_timeout = custom_value }
       end
 
       it 'returns configured value' do
-        expect(Payments.configuration.open_timeout).to eq(custom_value)
+        expect(PaymentsApi.configuration.open_timeout).to eq(custom_value)
       end
     end
   end
@@ -86,7 +86,7 @@ RSpec.describe Payments::Configuration do
   describe '#read_timeout' do
     context 'when no read_timeout is specified' do
       it 'has a default timeout' do
-        expect(Payments.configuration.read_timeout).to eq(8)
+        expect(PaymentsApi.configuration.read_timeout).to eq(8)
       end
     end
 
@@ -94,11 +94,11 @@ RSpec.describe Payments::Configuration do
       let(:custom_value) { 555 }
 
       before do
-        Payments.configure { |config| config.read_timeout = custom_value }
+        PaymentsApi.configure { |config| config.read_timeout = custom_value }
       end
 
       it 'returns configured value' do
-        expect(Payments.configuration.read_timeout).to eq(custom_value)
+        expect(PaymentsApi.configuration.read_timeout).to eq(custom_value)
       end
     end
   end
