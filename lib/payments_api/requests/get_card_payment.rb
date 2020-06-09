@@ -9,6 +9,8 @@ module PaymentsApi
 
       def initialize(payment_id:)
         @payment_id = payment_id
+
+        raise ArgumentError, '`payment_id` cannot be nil' unless payment_id
       end
 
       def call
