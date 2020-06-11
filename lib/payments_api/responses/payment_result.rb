@@ -3,6 +3,8 @@
 module PaymentsApi
   module Responses
     class PaymentResult
+      SUCCESS_STATUS = 'success'
+
       FIELDS = %w[
         amount
         state
@@ -38,6 +40,10 @@ module PaymentsApi
 
       def finished?
         !!state.dig('finished')
+      end
+
+      def success?
+        status.eql?(SUCCESS_STATUS)
       end
     end
   end
