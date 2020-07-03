@@ -26,9 +26,7 @@ RSpec.describe PaymentsApi::Requests::GetCardPayment do
       allow(subject).to receive(:http_client).and_return(http_client)
     end
 
-    it 'wraps the response in a PaymentResult' do
-      expect(subject.call).to be_a(PaymentsApi::Responses::PaymentResult)
-    end
+    it_behaves_like 'an API request'
 
     context 'Endpoint' do
       it 'gets the correct endpoint' do

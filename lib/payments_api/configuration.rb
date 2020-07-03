@@ -19,14 +19,25 @@ module PaymentsApi
     end
   end
 
+  # Get current configuration
+  #
+  # @return [PaymentsApi::Configuration] current configuration
+  #
   def self.configuration
     @configuration ||= Configuration.new
   end
 
-  def self.configuration=(config)
-    @configuration = config
-  end
-
+  # Configure the client
+  #
+  # Any attributes listed in +attr_accessor+ can be configured
+  #
+  # +api_root+, +open_timeout+, +read_timeout+ and +http_client_class+
+  #   are set to sensible defaults already, but still can be changed
+  #
+  # @example
+  #   PaymentsApi.configure do |config|
+  #     config.api_key = 'secret'
+  #   end
   def self.configure
     yield configuration
   end

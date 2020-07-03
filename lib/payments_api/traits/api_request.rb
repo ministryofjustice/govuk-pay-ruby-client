@@ -3,6 +3,7 @@
 module PaymentsApi
   module Traits
     module ApiRequest
+      #:nocov:
       def call
         raise 'implement in subclasses'
       end
@@ -10,18 +11,7 @@ module PaymentsApi
       def endpoint
         raise 'implement in subclasses'
       end
-
-      def payload
-        {}
-      end
-
-      def query
-        {}
-      end
-
-      def headers
-        {}
-      end
+      #:nocov:
 
       private
 
