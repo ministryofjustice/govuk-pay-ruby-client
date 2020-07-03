@@ -12,8 +12,8 @@ module PaymentsApi
     def initialize
       @api_root = 'https://publicapi.payments.service.gov.uk'
 
-      @open_timeout = 5   # connection timeout in seconds
-      @read_timeout = 8   # read timeout in seconds
+      @open_timeout = 10   # connection timeout in seconds
+      @read_timeout = 20   # read timeout in seconds
 
       @http_client_class = PaymentsApi::HttpClient
     end

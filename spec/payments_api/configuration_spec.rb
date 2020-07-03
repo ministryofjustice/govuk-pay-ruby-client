@@ -66,7 +66,7 @@ RSpec.describe PaymentsApi::Configuration do
   describe '#open_timeout' do
     context 'when no open_timeout is specified' do
       it 'has a default timeout' do
-        expect(PaymentsApi.configuration.open_timeout).to eq(5)
+        expect(PaymentsApi.configuration.open_timeout).to eq(10)
       end
     end
 
@@ -86,7 +86,7 @@ RSpec.describe PaymentsApi::Configuration do
   describe '#read_timeout' do
     context 'when no read_timeout is specified' do
       it 'has a default timeout' do
-        expect(PaymentsApi.configuration.read_timeout).to eq(8)
+        expect(PaymentsApi.configuration.read_timeout).to eq(20)
       end
     end
 
