@@ -23,6 +23,7 @@ module PaymentsApi
 
     class ClientError < ApiError; end
     class ServerError < ApiError; end
+    class ConnectionError < ApiError; end
 
     class BadRequest < ClientError; end
     class NotFoundError < ClientError; end

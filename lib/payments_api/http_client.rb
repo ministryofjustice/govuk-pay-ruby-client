@@ -53,7 +53,11 @@ module PaymentsApi
         yield(req) if block_given?
       end
 
-      handle_response(response)
+      handle_response(
+        response
+      )
+    rescue Faraday::Error => e
+      raise ConnectionError, e
     end
 
     def handle_response(response)
