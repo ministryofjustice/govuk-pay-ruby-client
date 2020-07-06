@@ -103,6 +103,32 @@ RSpec.describe PaymentsApi::Configuration do
     end
   end
 
+  describe '#request_headers' do
+    context 'when no request_headers are specified' do
+      it 'has default request_headers' do
+        expect(
+          PaymentsApi.configuration.request_headers
+        ).to eq({
+          'User-Agent' => "govuk-pay-ruby-client v#{PaymentsApi::VERSION}",
+          'Content-Type' => 'application/json',
+          'Accept' => 'application/json'
+        })
+      end
+    end
+
+    context 'when custom request_headers are specified' do
+      let(:custom_value) { { 'User-Agent' => 'Test Agent' } }
+
+      before do
+        PaymentsApi.configure { |config| config.request_headers = custom_value }
+      end
+
+      it 'returns configured value' do
+        expect(PaymentsApi.configuration.request_headers).to eq(custom_value)
+      end
+    end
+  end
+
   describe '#http_client_class' do
     context 'when no http_client_class is specified' do
       it 'defaults to the gem built-in client' do

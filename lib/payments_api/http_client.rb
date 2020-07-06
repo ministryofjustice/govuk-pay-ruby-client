@@ -8,11 +8,8 @@ module PaymentsApi
 
     attr_reader :options
 
-    MIME_CONTENT_TYPE = 'application/json'
-
     def initialize(options = {})
       @options = options
-      @config = PaymentsApi.configuration
     end
 
     # Only GET and POST verbs are used with Payments API, but more
@@ -34,21 +31,14 @@ module PaymentsApi
 
     private
 
-    def mime_content_type
-      MIME_CONTENT_TYPE
-    end
-
-    def request_headers
-      {
-        'Content-Type' => mime_content_type,
-        'Accept' => mime_content_type
-      }.freeze
+    def config
+      PaymentsApi.configuration
     end
 
     def execute_request!(verb, href)
       response = connection.send(verb) do |req|
         req.url(href)
-        req.headers.update(request_headers)
+        req.headers.update(config.request_headers)
 
         yield(req) if block_given?
       end
@@ -70,15 +60,19 @@ module PaymentsApi
     end
 
     def connection
-      Faraday.new(url: @config.api_root) do |conn|
-        conn.authorization(:Bearer, @config.api_key)
+      Faraday.new(url: config.api_root) do |conn|
+        conn.authorization(:Bearer, config.api_key)
 
-        conn.response(:logger, options.fetch(:logger, @config.logger), bodies: false) do |logger|
+        conn.response(:logger, options.fetch(:logger, config.logger), bodies: false) do |logger|
           logger.filter(/(Authorization:) "(Bearer .*)"/, '\1[REDACTED]')
         end
 
-        conn.options.timeout = options.fetch(:read_timeout, @config.read_timeout)
-        conn.options.open_timeout = options.fetch(:open_timeout, @config.open_timeout)
+        conn.options.open_timeout = options.fetch(
+          :open_timeout, config.open_timeout
+        )
+        conn.options.timeout = options.fetch(
+          :read_timeout, config.read_timeout
+        )
       end
     end
   end
