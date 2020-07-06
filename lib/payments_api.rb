@@ -3,6 +3,7 @@
 require 'json'
 require 'logger'
 
+require_relative 'payments_api/version'
 require_relative 'payments_api/configuration'
 require_relative 'payments_api/errors'
 require_relative 'payments_api/http_client'
