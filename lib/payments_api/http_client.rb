@@ -15,16 +15,14 @@ module PaymentsApi
     # Only GET and POST verbs are used with Payments API, but more
     # verbs can be easily added as needed.
 
-    def get(href, query = {}, headers = {})
+    def get(href, query = {})
       execute_request!(:get, href) do |req|
-        req.headers.update(headers)
         req.params.update(query)
       end
     end
 
-    def post(href, payload = {}, headers = {})
+    def post(href, payload = {})
       execute_request!(:post, href) do |req|
-        req.headers.update(headers)
         req.body = JSON.dump(payload)
       end
     end
