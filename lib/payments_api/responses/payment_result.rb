@@ -23,6 +23,19 @@ module PaymentsApi
 
       attr_reader(*FIELDS)
 
+      # Instantiate a payment result
+      #
+      # @note Not all properties returned by the API will be mapped to instance
+      #   attributes in this class, but most common are included
+      #
+      # @param response [Hash] The API response for the operation, currently
+      #   create a payment, or get details of an existing payment by ID
+      #
+      # @return [PaymentsApi::Responses::PaymentResult] instance
+      #
+      # @see https://govukpay-api-browser.cloudapps.digital/#tocscreatepaymentresult
+      # @see https://govukpay-api-browser.cloudapps.digital/#tocsgetpaymentresult
+      #
       def initialize(response)
         FIELDS.each do |field|
           instance_variable_set(:"@#{field}", response.fetch(field, nil))
