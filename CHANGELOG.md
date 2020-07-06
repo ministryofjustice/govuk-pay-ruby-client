@@ -1,4 +1,9 @@
-1.0.0 (06/07/2020)
-==================
+1.0.1 (06/07/2020)
+---------
 
-* Initial release.
+- Minor release to avoid a possible uninitialized constant error.
+
+1.0.0 (06/07/2020)
+---------
+
+- Initial release.
