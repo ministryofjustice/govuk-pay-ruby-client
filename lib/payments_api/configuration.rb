@@ -17,7 +17,7 @@ module PaymentsApi
       @read_timeout = 20   # read timeout in seconds
 
       @request_headers = {
-        'User-Agent' => "govuk-pay-ruby-client v#{VERSION}",
+        'User-Agent' => "govuk-pay-ruby-client v#{PaymentsApi::VERSION}",
         'Content-Type' => 'application/json',
         'Accept' => 'application/json'
       }.freeze

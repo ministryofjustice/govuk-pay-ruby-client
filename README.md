@@ -1,5 +1,7 @@
 # GOV.UK Pay ruby client (basic functionality)
 
+[![Gem Version](https://badge.fury.io/rb/govuk-pay-ruby-client.svg)](https://badge.fury.io/rb/govuk-pay-ruby-client)
+
 This is a basic little gem to serve as an API client for [GOV.UK Pay](https://www.payments.service.gov.uk).
 
 Currently it supports:

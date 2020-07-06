@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.authors  = ['Jesus Laiz']
   spec.email    = ['zheileman@users.noreply.github.com']
 
-  spec.summary  = 'Ruby client for GOV.UK Payments API basic functionality.'
+  spec.summary  = 'Ruby client for GOV.UK Pay API (basic functionality)'
   spec.homepage = 'https://github.com/ministryofjustice/govuk-pay-ruby-client'
   spec.license  = 'MIT'
 
@@ -27,10 +27,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'faraday', '~> 1.0'
 
   spec.add_development_dependency 'bundler', '~> 1.17'
-  spec.add_development_dependency 'pry-byebug', '~> 3.4'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.7'
   spec.add_development_dependency 'rubocop', '~> 0.80'
   spec.add_development_dependency 'simplecov', '~> 0.18'
-  spec.add_development_dependency 'webmock', '~> 3.4'
 end
