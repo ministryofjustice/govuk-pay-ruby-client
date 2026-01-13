@@ -59,7 +59,7 @@ module PaymentsApi
 
     def connection
       Faraday.new(url: config.api_root) do |conn|
-        conn.authorization(:Bearer, config.api_key)
+        conn.request(:authorization, 'Bearer', config.api_key)
 
         conn.response(:logger, options.fetch(:logger, config.logger), bodies: false) do |logger|
           logger.filter(/(Authorization:) "(Bearer .*)"/, '\1[REDACTED]')

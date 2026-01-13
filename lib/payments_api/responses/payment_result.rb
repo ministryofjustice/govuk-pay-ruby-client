@@ -48,11 +48,11 @@ module PaymentsApi
       end
 
       def status
-        state.dig('status')
+        state['status']
       end
 
       def finished?
-        !!state.dig('finished')
+        !!state['finished']
       end
 
       def success?

@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 3.4
   NewCops: enable
   Exclude:
     - 'spec/**/*'
@@ -11,11 +11,17 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
+Gemspec/DevelopmentDependencies:
+  Enabled: false
+
+Gemspec/RequireMFA:
+  Enabled: false
+
 Naming/MemoizedInstanceVariableName:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 23
+  Max: 25
 
 Metrics/MethodLength:
   Max: 12

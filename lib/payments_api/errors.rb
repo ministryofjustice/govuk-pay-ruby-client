@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'errors'
-
 module PaymentsApi
   module Errors
     def raise_error!(response_body, status_code)

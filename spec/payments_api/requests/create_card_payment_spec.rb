@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe PaymentsApi::Requests::CreateCardPayment do
-  subject { described_class.new(args) }
+  subject { described_class.new(**args) }
 
   let(:http_client) { instance_double(PaymentsApi::HttpClient, post: {}) }
 
