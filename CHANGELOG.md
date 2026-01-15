@@ -1,3 +1,9 @@
+1.0.3 (13/01/2026)
+---------
+
+- Updating version requirements for Ruby (2.5 -> 3.4.8) and Faraday (1 -> 2)
+- Updating the code to reflect changes in Ruby and Faraday gem.
+
 1.0.2 (06/07/2020)
 ---------
 
